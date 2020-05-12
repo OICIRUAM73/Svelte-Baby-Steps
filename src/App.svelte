@@ -5,6 +5,7 @@
 	import Skills from "./components/Skills.svelte"
 	import Input from "./components/Input.svelte"
 	import Photos from "./components/Photos.svelte"
+	import ButtonCount from "./components/ButtonCount.svelte"
 	export let name;
 	export let lastName;
 	let svelteLogo ="https://arepa.s3.amazonaws.com/svelte-logo.png";
@@ -27,6 +28,7 @@
 	<Input  />
 	<img src={svelteLogo} alt="Svelte">
 	<Photos  />
+	<ButtonCount  />
 </main>
 
 <style>
