@@ -313,9 +313,9 @@ var app = (function () {
     	let t4;
     	let t5;
     	let p;
-    	let t6;
-    	let a;
-    	let t8;
+    	let t7;
+    	let img;
+    	let img_src_value;
 
     	const block = {
     		c: function create() {
@@ -328,17 +328,19 @@ var app = (function () {
     			t4 = text("!");
     			t5 = space();
     			p = element("p");
-    			t6 = text("Visit the ");
-    			a = element("a");
-    			a.textContent = "Svelte tutorial";
-    			t8 = text(" to learn how to build Svelte apps.");
-    			attr_dev(h1, "class", "svelte-1tky8bj");
-    			add_location(h1, file, 6, 1, 68);
-    			attr_dev(a, "href", "https://svelte.dev/tutorial");
-    			add_location(a, file, 7, 14, 116);
-    			add_location(p, file, 7, 1, 103);
-    			attr_dev(main, "class", "svelte-1tky8bj");
-    			add_location(main, file, 5, 0, 60);
+    			p.textContent = "Frontend Developer";
+    			t7 = space();
+    			img = element("img");
+    			attr_dev(h1, "class", "svelte-o5r0kh");
+    			add_location(h1, file, 7, 1, 134);
+    			attr_dev(p, "class", "svelte-o5r0kh");
+    			add_location(p, file, 8, 1, 169);
+    			if (img.src !== (img_src_value = /*svelteLogo*/ ctx[2])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "Svelte");
+    			attr_dev(img, "class", "svelte-o5r0kh");
+    			add_location(img, file, 9, 1, 196);
+    			attr_dev(main, "class", "svelte-o5r0kh");
+    			add_location(main, file, 6, 0, 126);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -353,9 +355,8 @@ var app = (function () {
     			append_dev(h1, t4);
     			append_dev(main, t5);
     			append_dev(main, p);
-    			append_dev(p, t6);
-    			append_dev(p, a);
-    			append_dev(p, t8);
+    			append_dev(main, t7);
+    			append_dev(main, img);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*name*/ 1) set_data_dev(t1, /*name*/ ctx[0]);
@@ -382,6 +383,7 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { name } = $$props;
     	let { lastName } = $$props;
+    	let svelteLogo = "https://arepa.s3.amazonaws.com/svelte-logo.png";
     	const writable_props = ["name", "lastName"];
 
     	Object.keys($$props).forEach(key => {
@@ -396,18 +398,19 @@ var app = (function () {
     		if ("lastName" in $$props) $$invalidate(1, lastName = $$props.lastName);
     	};
 
-    	$$self.$capture_state = () => ({ name, lastName });
+    	$$self.$capture_state = () => ({ name, lastName, svelteLogo });
 
     	$$self.$inject_state = $$props => {
     		if ("name" in $$props) $$invalidate(0, name = $$props.name);
     		if ("lastName" in $$props) $$invalidate(1, lastName = $$props.lastName);
+    		if ("svelteLogo" in $$props) $$invalidate(2, svelteLogo = $$props.svelteLogo);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [name, lastName];
+    	return [name, lastName, svelteLogo];
     }
 
     class App extends SvelteComponentDev {
@@ -454,8 +457,8 @@ var app = (function () {
     const app = new App({
     	target: document.body,
     	props: {
-    		name: 'world',
-    		lastName: 'lls'
+    		name: 'Mauricio',
+    		lastName: 'Llumiquinga'
     	}
     });
 
