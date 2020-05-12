@@ -34,7 +34,10 @@
 		--theme-color: purple;
 	}
 
-
+	:global(body.dark-mode) {
+		background-color: #1d3040;
+		color: #bfc2c7;
+	}
 
 	main {
 		text-align: center;
